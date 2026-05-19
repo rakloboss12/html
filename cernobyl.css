@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  color: #f4f4f4;
+  background: url('pozadie.webp') center center / cover no-repeat fixed;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.33);
+  pointer-events: none;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 420px) 1fr;
+  gap: 20px;
+  min-height: 100vh;
+  align-items: center;
+  padding: 26px;
+}
+
+.box {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  background: rgba(20, 20, 20, 0.38);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.box img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.box-text {
+  min-height: 340px;
+  text-align: center;
+}
+
+.box-text h1 {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.box-text p {
+  margin: 0;
+  max-width: 30rem;
+  color: #ececec;
+  line-height: 1.7;
+}
+
+.caption {
+  color: #ddd;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.small {
+  color: #c7c7c7;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1040px) {
+  .page {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .box {
+    padding: 18px;
+  }
+}
+
+.letter {
+  display: inline-block;
+  position: relative;
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.95);
+  animation: fall 2s ease forwards;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-28px);
+    opacity: 0;
+  }
+}
+
+.footer {
+  grid-column: 1 / 4;
+  text-align: center;
+  padding: 18px 20px;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  background: rgba(15, 15, 15, 0.45);
+  backdrop-filter: blur(14px);
+  color: #ddd;
+}

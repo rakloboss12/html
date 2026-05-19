@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Černobyľ - Spomienka</title>
+    <link rel="stylesheet" href="cernobyl.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page">
+        <div class="box">
+            <img src="fotka 1.avif" alt="Fotka 1">
+            <p class="caption">Vybuchnutý Reaktor</p>
+        </div>
+
+        <div class="box box-text">
+            <h1 id="title"></h1>
+            <p>26. apríl 1986 zostáva jazvou na mape Európy. Uctime si pamiatku likvidátorov a nevinných obetí tragédie, ktorá navždy zmenila náš svet.</p>
+            <p class="small">Hnusní, škaredí komunisti!!!</p>
+        </div>
+
+        <div class="box">
+            <img src="cs2.jpg" alt="Fotka 2">
+            <p class="caption">Značka Pripjať</p>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 Raklo Boss 12</p>
+        </footer>
+    </div>
+
+    <script>
+        const text = "Černobyľ";
+        const title = document.getElementById("title");
+
+        function addLetters() {
+            title.innerHTML = '';
+            [...text].forEach((char, i) => {
+                const span = document.createElement("span");
+                span.textContent = char;
+                span.className = "letter";
+                span.style.animationDelay = (i * 0.12) + 's';
+                span.addEventListener('animationend', () => span.remove());
+                title.appendChild(span);
+            });
+        }
+
+        addLetters();
+        setInterval(addLetters, 2400);
+    </script>
+</body>
+</html>
